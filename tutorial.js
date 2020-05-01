@@ -18,4 +18,27 @@ var twoSum = function (nums, target) {
   }
 };
 
-console.log(twoSum([2, 11, 15, 7], 9));
+// console.log(twoSum([2, 11, 15, 7], 9));
+
+var lengthOfLongestSubstring = function (s) {
+  let longestString = [];
+  let string = [];
+  for (let i = 0; i < s.length; i++) {
+    if (string.length === 0) {
+      string.push(s[i]);
+    } else {
+      if (string[0] !== s[i]) {
+        string.push(s[i]);
+      } else if (string[0] === s[i]) {
+        longestString.push(string);
+        string = [];
+      }
+    }
+  }
+};
+
+lengthOfLongestSubstring("wewemon");
+
+console.log(
+  `The answer is "${longestString}", with the length of ${longestString.length}`
+);
