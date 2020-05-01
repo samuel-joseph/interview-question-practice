@@ -24,21 +24,35 @@ var lengthOfLongestSubstring = function (s) {
   let longestString = [];
   let string = [];
   for (let i = 0; i < s.length; i++) {
-    if (string.length === 0) {
+    if (i === s.length - 1) {
+      for (let j = 0; j < string.length; j++) {
+        if (string[j] === s[i]) unique = false;
+      }
+      if (string.length > longestString.length) {
+        longestString = string;
+      }
+      console.log(
+        `The answer is "${longestString.join("")}", with the length of ${
+          longestString.length
+        }`
+      );
+      return longestString.length;
+    } else if (string.length === 0) {
       string.push(s[i]);
     } else {
-      if (string[0] !== s[i]) {
+      let unique = true;
+      for (let j = 0; j < string.length; j++) {
+        if (string[j] === s[i]) unique = false;
+      }
+      if (unique) {
         string.push(s[i]);
-      } else if (string[0] === s[i]) {
+      } else if (unique && s.length - 1 !== i) {
         longestString.push(string);
         string = [];
+        string.push(s[i]);
       }
     }
   }
 };
 
-lengthOfLongestSubstring("wewemon");
-
-console.log(
-  `The answer is "${longestString}", with the length of ${longestString.length}`
-);
+console.log(lengthOfLongestSubstring("abcabcbb"));
