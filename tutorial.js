@@ -21,6 +21,8 @@ var twoSum = function (nums, target) {
 // console.log(twoSum([2, 11, 15, 7], 9));
 
 var lengthOfLongestSubstring = function (s) {
+  if (s.length === 0) return 0;
+  if (s.length === 1) return s.length;
   let longestString = [];
   let string = [];
   for (let i = 0; i < s.length; i++) {
@@ -31,11 +33,7 @@ var lengthOfLongestSubstring = function (s) {
       if (string.length > longestString.length) {
         longestString = string;
       }
-      console.log(
-        `The answer is "${longestString.join("")}", with the length of ${
-          longestString.length
-        }`
-      );
+
       return longestString.length;
     } else if (string.length === 0) {
       string.push(s[i]);
@@ -46,8 +44,10 @@ var lengthOfLongestSubstring = function (s) {
       }
       if (unique) {
         string.push(s[i]);
-      } else if (unique && s.length - 1 !== i) {
-        longestString.push(string);
+      } else if (unique === false && s.length - 1 !== i) {
+        if (string.length > longestString.length) {
+          longestString = string;
+        }
         string = [];
         string.push(s[i]);
       }
@@ -55,4 +55,5 @@ var lengthOfLongestSubstring = function (s) {
   }
 };
 
-console.log(lengthOfLongestSubstring("abcabcbb"));
+console.log(lengthOfLongestSubstring(" "));
+// console.log(lengthOfLongestSubstring("abcabcbb"));
