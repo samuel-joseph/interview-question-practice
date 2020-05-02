@@ -41,6 +41,8 @@ var lengthOfLongestSubstring = function (s) {
 // console.log(lengthOfLongestSubstring("au"));
 // console.log(lengthOfLongestSubstring("abcabcbb"));
 
+
+
 var isPalindrome = function (x) {
   var digits = ("" + x).split("");
   let y = digits.length - 1;
@@ -51,10 +53,12 @@ var isPalindrome = function (x) {
       isPalindrome = true;
     } else {
       isPalindrome = false;
-      return isPalindrome;
+        return isPalindrome;
     }
   }
   return isPalindrome;
 };
 
-console.log(isPalindrome(1000021));
+
+
+
