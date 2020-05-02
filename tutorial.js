@@ -21,39 +21,40 @@ var twoSum = function (nums, target) {
 // console.log(twoSum([2, 11, 15, 7], 9));
 
 var lengthOfLongestSubstring = function (s) {
-  if (s.length === 0) return 0;
-  if (s.length === 1) return s.length;
-  let longestString = [];
-  let string = [];
+  let longest = [];
+  let longNew = [];
+  let unique = true;
   for (let i = 0; i < s.length; i++) {
-    if (i === s.length - 1) {
-      for (let j = 0; j < string.length; j++) {
-        if (string[j] === s[i]) unique = false;
-      }
-      if (string.length > longestString.length) {
-        longestString = string;
-      }
-
-      return longestString.length;
-    } else if (string.length === 0) {
-      string.push(s[i]);
-    } else {
-      let unique = true;
-      for (let j = 0; j < string.length; j++) {
-        if (string[j] === s[i]) unique = false;
-      }
-      if (unique) {
-        string.push(s[i]);
-      } else if (unique === false && s.length - 1 !== i) {
-        if (string.length > longestString.length) {
-          longestString = string;
-        }
-        string = [];
-        string.push(s[i]);
+    for (let j = 0; j < longest.length; j++) {
+      if (longest[j] === s[i]) unique = false;
+    }
+    if (unique) longNew.push(s[i]);
+    else {
+      if (longNew.length >= longest.length) {
+        longest = longNew;
       }
     }
   }
+  return longest.length;
 };
 
-console.log(lengthOfLongestSubstring(" "));
+// console.log(lengthOfLongestSubstring("au"));
 // console.log(lengthOfLongestSubstring("abcabcbb"));
+
+var isPalindrome = function (x) {
+  var digits = ("" + x).split("");
+  let y = digits.length - 1;
+
+  let isPalindrome = false;
+  for (let i = 0; i < digits.length; i++) {
+    if (digits[i] === digits[y - i]) {
+      isPalindrome = true;
+    } else {
+      isPalindrome = false;
+      return isPalindrome;
+    }
+  }
+  return isPalindrome;
+};
+
+console.log(isPalindrome(1000021));
