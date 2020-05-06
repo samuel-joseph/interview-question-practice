@@ -41,8 +41,6 @@ var lengthOfLongestSubstring = function (s) {
 // console.log(lengthOfLongestSubstring("au"));
 // console.log(lengthOfLongestSubstring("abcabcbb"));
 
-
-
 var isPalindrome = function (x) {
   var digits = ("" + x).split("");
   let y = digits.length - 1;
@@ -53,12 +51,21 @@ var isPalindrome = function (x) {
       isPalindrome = true;
     } else {
       isPalindrome = false;
-        return isPalindrome;
+      return isPalindrome;
     }
   }
   return isPalindrome;
 };
 
+var removeDuplicates = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      if (j != i && nums[i] === nums[j]) {
+        nums.splice(nums.indexOf(nums[j]), 1);
+      }
+    }
+  }
+  return nums.length;
+};
 
-
-
+console.log(removeDuplicates([0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 4]));
