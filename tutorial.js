@@ -59,8 +59,8 @@ var isPalindrome = function (x) {
 
 var removeDuplicates = function (nums) {
   for (let i = 0; i < nums.length; i++) {
-    for (let j = 0; j < nums.length; j++) {
-      if (j != i && nums[i] === nums[j]) {
+    for (let j = nums.length - 1; j >= 0; j--) {
+      if (i != j&&nums[i] === nums[j]) {
         nums.splice(nums.indexOf(nums[j]), 1);
       }
     }
@@ -68,4 +68,4 @@ var removeDuplicates = function (nums) {
   return nums.length;
 };
 
-console.log(removeDuplicates([0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 4]));
+console.log(removeDuplicates([1, 1, 2]));
