@@ -69,6 +69,7 @@ var removeDuplicates = function (nums) {
 };
 
 var romanToInt = function (s) {
+  s = s.toUpperCase();
   var romans = ("" + s).split("");
   let total = 0;
   let I = 1;
@@ -121,4 +122,4 @@ var romanToInt = function (s) {
   return total;
 };
 
-console.log(romanToInt("XIX"));
+console.log(romanToInt("IIIIIIIII"));
