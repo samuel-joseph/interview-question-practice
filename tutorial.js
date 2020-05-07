@@ -60,7 +60,7 @@ var isPalindrome = function (x) {
 var removeDuplicates = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = nums.length - 1; j >= 0; j--) {
-      if (i != j&&nums[i] === nums[j]) {
+      if (i != j && nums[i] === nums[j]) {
         nums.splice(nums.indexOf(nums[j]), 1);
       }
     }
@@ -68,4 +68,57 @@ var removeDuplicates = function (nums) {
   return nums.length;
 };
 
-console.log(removeDuplicates([1, 1, 2]));
+var romanToInt = function (s) {
+  var romans = ("" + s).split("");
+  let total = 0;
+  let I = 1;
+  let V = 5;
+  let X = 10;
+  let L = 50;
+  let C = 100;
+  let D = 500;
+  let M = 1000;
+  let prev = 0;
+  let num = 0;
+
+  for (let i = 0; i < romans.length; i++) {
+    switch (romans[i]) {
+      case "I":
+        num += 1;
+        break;
+      case "V":
+        num += 5;
+        break;
+      case "X":
+        num += 10;
+        break;
+      case "L":
+        num += 50;
+        break;
+      case "C":
+        num += 100;
+        break;
+      case "D":
+        num += 500;
+        break;
+      case "M":
+        num += 1000;
+        break;
+      // code block
+    }
+    if (prev < num) {
+      num -= prev;
+      total -= prev;
+      prev = num;
+      total += num;
+      num = 0;
+    } else {
+      prev = num;
+      num = 0;
+      total += prev;
+    }
+  }
+  return total;
+};
+
+console.log(romanToInt("XIX"));
