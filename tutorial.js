@@ -133,22 +133,14 @@ var isValid = function (s) {
   var brackets = ("" + s).split("");
   var open = "";
   var close = "";
-  if (brackets.length % 2 != 0 || brackets.length <= 0) {
+  if (brackets.length % 2 != 0 || brackets.length < 0) {
     return false;
   } else {
-    for (let i = 0; i < brackets.length; i++) {
-      if (brackets[i] === "{" || brackets[i] === "(" || brackets[i] === "[") {
-        open = brackets[i];
-      } else if (
-        brackets[i] === "}" ||
-        brackets[i] === ")" ||
-        brackets[i] === "]"
-      ) {
-        close = brackets[i];
-      }
-      
-    }
+    if (brackets.length === 0) return true;
+    // var sample = /\[\{\(\)\}\]/;
+    var sample = /\(\)\\/
+    return sample.test(s);
   }
 };
 
-console.log(isValid(""));
+console.log(isValid("()"));
