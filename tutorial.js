@@ -122,7 +122,33 @@ var romanToInt = function (s) {
   return total;
 };
 
+// Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
-var isValid = function(s) {
-    
+// An input string is valid if:
+
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+
+var isValid = function (s) {
+  var brackets = ("" + s).split("");
+  var open = "";
+  var close = "";
+  if (brackets.length % 2 != 0 || brackets.length <= 0) {
+    return false;
+  } else {
+    for (let i = 0; i < brackets.length; i++) {
+      if (brackets[i] === "{" || brackets[i] === "(" || brackets[i] === "[") {
+        open = brackets[i];
+      } else if (
+        brackets[i] === "}" ||
+        brackets[i] === ")" ||
+        brackets[i] === "]"
+      ) {
+        close = brackets[i];
+      }
+      
+    }
+  }
 };
+
+console.log(isValid(""));
