@@ -136,7 +136,7 @@ var isValid = function (s) {
     return false;
   } else {
     while (brackets.length !== 0) {
-      console.log(brackets);
+      console.log(brackets[brackets.length - 1]);
       if (brackets[0] === "(" || brackets[0] === "{" || brackets[0] === "[") {
         // if (brackets[1] === ")" || brackets[1] === "}" || brackets[1] === "]") {
         switch (brackets[0]) {
@@ -144,7 +144,7 @@ var isValid = function (s) {
             if (brackets[1] === ")") {
               brackets.splice(brackets[0], 1);
               brackets.splice(brackets[1], 1);
-            } else if (brackets[length] === ")") {
+            } else if (brackets[brackets.length - 1] === ")") {
               brackets.splice(brackets[0], 1);
               brackets.pop();
             } else return false;
@@ -153,7 +153,7 @@ var isValid = function (s) {
             if (brackets[1] === "}") {
               brackets.splice(brackets[0], 1);
               brackets.splice(brackets[1], 1);
-            } else if (brackets[length] === "}") {
+            } else if (brackets[brackets.length - 1] === "}") {
               brackets.splice(brackets[0], 1);
               brackets.pop();
             } else return false;
@@ -162,7 +162,7 @@ var isValid = function (s) {
             if (brackets[1] === "]") {
               brackets.splice(brackets[0], 1);
               brackets.splice(brackets[1], 1);
-            } else if (brackets[length] === "]") {
+            } else if (brackets[brackets.length - 1] === "]") {
               brackets.splice(brackets[0], 1);
               brackets.pop();
             } else return false;
@@ -187,4 +187,4 @@ var isValid = function (s) {
   }
 };
 
-console.log(isValid("()"));
+console.log(isValid("({[]})"));
