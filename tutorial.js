@@ -131,47 +131,44 @@ var romanToInt = function (s) {
 
 var isValid = function (s) {
   var brackets = ("" + s).split("");
-  var length = brackets.length - 1;
   if (brackets.length % 2 != 0 || brackets.length < 0) {
     return false;
   } else {
     while (brackets.length !== 0) {
-      if (brackets[0] === "(" || brackets[0] === "{" || brackets[0] === "[") {
-        switch (brackets[0]) {
-          case "(":
-            if (brackets[1] === ")") {
-              brackets.splice(brackets[0], 1);
-              brackets.splice(brackets[1], 1);
-            } else if (brackets[brackets.length - 1] === ")") {
-              brackets.splice(brackets[0], 1);
-              brackets.pop();
-            } else return false;
-            break;
-          case "{":
-            if (brackets[1] === "}") {
-              brackets.splice(brackets[0], 1);
-              brackets.splice(brackets[1], 1);
-            } else if (brackets[brackets.length - 1] === "}") {
-              brackets.splice(brackets[0], 1);
-              brackets.pop();
-            } else return false;
-            break;
-          case "[":
-            if (brackets[1] === "]") {
-              brackets.splice(brackets[0], 1);
-              brackets.splice(brackets[1], 1);
-            } else if (brackets[brackets.length - 1] === "]") {
-              brackets.splice(brackets[0], 1);
-              brackets.pop();
-            } else return false;
-            break;
-          default:
-            return false;
-        }
+      switch (brackets[0]) {
+        case "(":
+          if (brackets[1] === ")") {
+            brackets.splice(brackets[0], 1);
+            brackets.splice(brackets[1], 1);
+          } else if (brackets[brackets.length - 1] === ")") {
+            brackets.splice(brackets[0], 1);
+            brackets.pop();
+          } else return false;
+          break;
+        case "{":
+          if (brackets[1] === "}") {
+            brackets.splice(brackets[0], 1);
+            brackets.splice(brackets[1], 1);
+          } else if (brackets[brackets.length - 1] === "}") {
+            brackets.splice(brackets[0], 1);
+            brackets.pop();
+          } else return false;
+          break;
+        case "[":
+          if (brackets[1] === "]") {
+            brackets.splice(brackets[0], 1);
+            brackets.splice(brackets[1], 1);
+          } else if (brackets[brackets.length - 1] === "]") {
+            brackets.splice(brackets[0], 1);
+            brackets.pop();
+          } else return false;
+          break;
+        default:
+          return false;
       }
     }
     return true;
   }
 };
 
-console.log(isValid(""));
+console.log(isValid("(([]){})"));
