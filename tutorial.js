@@ -138,27 +138,23 @@ var isValid = function (s) {
     while (brackets.length !== 0) {
       console.log(brackets);
       if (brackets[0] === "(" || brackets[0] === "{" || brackets[0] === "[") {
-        if (
+        if (brackets[1] === ")" || brackets[1] === "}" || brackets[1] === "]") {
+          brackets.splice(brackets[0], 1);
+          brackets.splice(brackets[1], 1);
+        } else if (
           brackets[brackets.length - 1] === ")" ||
           brackets[brackets.length - 1] === "}" ||
           brackets[brackets.length - 1] === "]"
         ) {
           brackets.splice(brackets[0], 1);
           brackets.pop();
-        } else if (
-          brackets[1] === ")" ||
-          brackets[1] === "}" ||
-          brackets[1] === "]"
-        ) {
-          brackets.splice(brackets[0], 1);
-          brackets.splice(brackets[1], 1);
         }
       } else {
         return false;
       }
     }
-    return true
+    return true;
   }
 };
 
-console.log(isValid("([{}])"));
+console.log(isValid("()"));
