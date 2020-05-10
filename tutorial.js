@@ -135,16 +135,16 @@ var isValid = function (s) {
   if (brackets.length % 2 != 0 || brackets.length < 0) {
     return false;
   } else {
-    console.log(brackets.length);
     while (brackets.length !== 0) {
+      console.log(brackets);
       if (brackets[0] === "(" || brackets[0] === "{" || brackets[0] === "[") {
         if (
-          brackets[length] === ")" ||
-          brackets[length] === "}" ||
-          brackets[length] === "]"
+          brackets[brackets.length - 1] === ")" ||
+          brackets[brackets.length - 1] === "}" ||
+          brackets[brackets.length - 1] === "]"
         ) {
           brackets.splice(brackets[0], 1);
-          brackets.splice(brackets[length], 1);
+          brackets.pop();
         } else if (
           brackets[1] === ")" ||
           brackets[1] === "}" ||
@@ -157,8 +157,7 @@ var isValid = function (s) {
         return false;
       }
     }
-
-    console.log(brackets.length);
+    return true
   }
 };
 
