@@ -134,46 +134,33 @@ var isValid = function (s) {
   if (brackets.length % 2 != 0 || brackets.length < 0) {
     return false;
   } else {
-    while (brackets.length !== 0) {
+    let i = 1
+    while (brackets.length!==0){
       switch (brackets[0]) {
         case "(":
-          for (let i = 1; i < brackets.length; i++) {
-            console.log("CHECK");
-            if (brackets[i] === ")" && i !== brackets.length - 1) {
-              brackets.splice(brackets[0], 1);
-              brackets.splice(brackets[i], 1);
+          switch (brackets[i]) {
+            case ")":
+              brackets.splice(i, 1)
+              brackets.splice(0, 1)
+              i = 1
               break;
-            } else if (i === brackets.length - 1) return false;
+            default:
+              if (i === brackets.length - 1) return false
+              else i++
           }
           break;
-
-        //  else if (brackets[brackets.length - 1] === ")") {
-        //   brackets.splice(brackets[0], 1);
-        //   brackets.pop();
-        // } else return false;
-        // break;
+        
         case "{":
-          for (let i = 1; i < brackets.length; i++) {
-            if (brackets[i] === "}" && i !== brackets.length - 1) {
-              brackets.splice(brackets[0], 1);
-              brackets.splice(brackets[i], 1);
-            } else if (i === brackets.length - 1) return false;
-          }
+          switch
           break;
+        
         case "[":
-          for (let i = 1; i < brackets.length; i++) {
-            if (brackets[i] === "]" && i !== brackets.length - 1) {
-              brackets.splice(brackets[0], 1);
-              brackets.splice(brackets[i], 1);
-            } else if (i === brackets.length - 1) return false;
-          }
           break;
+        
         default:
           return false;
-      }
     }
-    return true;
   }
 };
 
-console.log(isValid("(([]){})"));
+console.log(isValid("()[]{}"));
