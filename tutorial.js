@@ -137,9 +137,7 @@ var isValid = function (s) {
     return false;
   } else {
     if (brackets.length === 0) return true;
-    // var sample = /\[\{\(\)\}\]/;
-    var sample = /\(\)\\/
-    return sample.test(s);
+    
   }
 };
 
