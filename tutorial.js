@@ -138,20 +138,50 @@ var isValid = function (s) {
     while (brackets.length !== 0) {
       console.log(brackets);
       if (brackets[0] === "(" || brackets[0] === "{" || brackets[0] === "[") {
-        if (brackets[1] === ")" || brackets[1] === "}" || brackets[1] === "]") {
-          brackets.splice(brackets[0], 1);
-          brackets.splice(brackets[1], 1);
-        } else if (
-          brackets[brackets.length - 1] === ")" ||
-          brackets[brackets.length - 1] === "}" ||
-          brackets[brackets.length - 1] === "]"
-        ) {
-          brackets.splice(brackets[0], 1);
-          brackets.pop();
+        // if (brackets[1] === ")" || brackets[1] === "}" || brackets[1] === "]") {
+        switch (brackets[0]) {
+          case "(":
+            if (brackets[1] === ")") {
+              brackets.splice(brackets[0], 1);
+              brackets.splice(brackets[1], 1);
+            } else if (brackets[length] === ")") {
+              brackets.splice(brackets[0], 1);
+              brackets.pop();
+            } else return false;
+            break;
+          case "{":
+            if (brackets[1] === "}") {
+              brackets.splice(brackets[0], 1);
+              brackets.splice(brackets[1], 1);
+            } else if (brackets[length] === "}") {
+              brackets.splice(brackets[0], 1);
+              brackets.pop();
+            } else return false;
+            break;
+          case "[":
+            if (brackets[1] === "]") {
+              brackets.splice(brackets[0], 1);
+              brackets.splice(brackets[1], 1);
+            } else if (brackets[length] === "]") {
+              brackets.splice(brackets[0], 1);
+              brackets.pop();
+            } else return false;
+            break;
+          default:
+            return false;
         }
-      } else {
-        return false;
       }
+      // else if (
+      //     brackets[brackets.length - 1] === ")" ||
+      //     brackets[brackets.length - 1] === "}" ||
+      //     brackets[brackets.length - 1] === "]"
+      //   ) {
+      //     // brackets.splice(brackets[0], 1);
+      //     // brackets.pop();
+      //   }
+      // } else {
+      //   return false;
+      // }
     }
     return true;
   }
