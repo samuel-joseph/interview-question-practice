@@ -131,14 +131,35 @@ var romanToInt = function (s) {
 
 var isValid = function (s) {
   var brackets = ("" + s).split("");
-  var open = "";
-  var close = "";
+  var length = brackets.length - 1;
   if (brackets.length % 2 != 0 || brackets.length < 0) {
     return false;
   } else {
-    if (brackets.length === 0) return true;
-    
+    console.log(brackets.length);
+    while (brackets.length !== 0) {
+      if (brackets[0] === "(" || brackets[0] === "{" || brackets[0] === "[") {
+        if (
+          brackets[length] === ")" ||
+          brackets[length] === "}" ||
+          brackets[length] === "]"
+        ) {
+          brackets.splice(brackets[0], 1);
+          brackets.splice(brackets[length], 1);
+        } else if (
+          brackets[1] === ")" ||
+          brackets[1] === "}" ||
+          brackets[1] === "]"
+        ) {
+          brackets.splice(brackets[0], 1);
+          brackets.splice(brackets[1], 1);
+        }
+      } else {
+        return false;
+      }
+    }
+
+    console.log(brackets.length);
   }
 };
 
-console.log(isValid("()"));
+console.log(isValid("([{}])"));
