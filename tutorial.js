@@ -137,31 +137,36 @@ var isValid = function (s) {
     while (brackets.length !== 0) {
       switch (brackets[0]) {
         case "(":
-          if (brackets[1] === ")") {
-            brackets.splice(brackets[0], 1);
-            brackets.splice(brackets[1], 1);
-          } else if (brackets[brackets.length - 1] === ")") {
-            brackets.splice(brackets[0], 1);
-            brackets.pop();
-          } else return false;
+          for (let i = 1; i < brackets.length; i++) {
+            console.log("CHECK");
+            if (brackets[i] === ")" && i !== brackets.length - 1) {
+              brackets.splice(brackets[0], 1);
+              brackets.splice(brackets[i], 1);
+              break;
+            } else if (i === brackets.length - 1) return false;
+          }
           break;
+
+        //  else if (brackets[brackets.length - 1] === ")") {
+        //   brackets.splice(brackets[0], 1);
+        //   brackets.pop();
+        // } else return false;
+        // break;
         case "{":
-          if (brackets[1] === "}") {
-            brackets.splice(brackets[0], 1);
-            brackets.splice(brackets[1], 1);
-          } else if (brackets[brackets.length - 1] === "}") {
-            brackets.splice(brackets[0], 1);
-            brackets.pop();
-          } else return false;
+          for (let i = 1; i < brackets.length; i++) {
+            if (brackets[i] === "}" && i !== brackets.length - 1) {
+              brackets.splice(brackets[0], 1);
+              brackets.splice(brackets[i], 1);
+            } else if (i === brackets.length - 1) return false;
+          }
           break;
         case "[":
-          if (brackets[1] === "]") {
-            brackets.splice(brackets[0], 1);
-            brackets.splice(brackets[1], 1);
-          } else if (brackets[brackets.length - 1] === "]") {
-            brackets.splice(brackets[0], 1);
-            brackets.pop();
-          } else return false;
+          for (let i = 1; i < brackets.length; i++) {
+            if (brackets[i] === "]" && i !== brackets.length - 1) {
+              brackets.splice(brackets[0], 1);
+              brackets.splice(brackets[i], 1);
+            } else if (i === brackets.length - 1) return false;
+          }
           break;
         default:
           return false;
