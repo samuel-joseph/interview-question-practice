@@ -131,36 +131,58 @@ var romanToInt = function (s) {
 
 var isValid = function (s) {
   var brackets = ("" + s).split("");
-  if (brackets.length % 2 != 0 || brackets.length < 0) {
-    return false;
-  } else {
-    let i = 1
-    while (brackets.length!==0){
-      switch (brackets[0]) {
-        case "(":
-          switch (brackets[i]) {
-            case ")":
-              brackets.splice(i, 1)
-              brackets.splice(0, 1)
-              i = 1
-              break;
-            default:
-              if (i === brackets.length - 1) return false
-              else i++
-          }
-          break;
-        
-        case "{":
-          switch
-          break;
-        
-        case "[":
-          break;
-        
-        default:
-          return false;
+  var bucket = [];
+  if (brackets.length === 0) return true;
+  bucket.push(brackets[0]);
+  for (let i = 1; i < brackets.length; i++) {
+    switch (bucket[bucket.length - 1]) {
+      case "(":
+        if (brackets[i] === ")") {
+          bucket.pop();
+        } else {
+          bucket.push(brackets[i]);
+        }
+        break;
+      case "{":
+        if (brackets[i] === "}") {
+          bucket.pop();
+        } else {
+          bucket.push(brackets[i]);
+        }
+        break;
+      case "[":
+        if (brackets[i] === "]") {
+          bucket.pop();
+        } else {
+          bucket.push(brackets[i]);
+        }
+        break;
+      default:
+        bucket.push(brackets[i]);
+        break;
     }
   }
+  if (bucket.length === 0) return true;
+  else return false;
 };
 
-console.log(isValid("()[]{}"));
+
+// Given an array nums and a value val, remove all instances of that value in-place and return the new length.
+
+// Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+
+// The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+
+// Example 1:
+
+// Given nums = [3,2,2,3], val = 3,
+
+// Your function should return length = 2, with the first two elements of nums being 2.
+
+// It doesn't matter what you leave beyond the returned length.
+
+var removeElement = function(nums, val) {
+    
+};
+
+console.log(removeElement([3,2,2,3],3))
