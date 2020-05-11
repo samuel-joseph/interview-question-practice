@@ -204,10 +204,10 @@ var removeElement = function (nums, val) {
 var moveZeroes = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 0) {
-      nums.push(nums.splice(i, 1));
+      nums.push(nums.splice(i, 1).pop());
     }
   }
   console.log(nums);
 };
 
-
+moveZeroes([0, 1, 0, 3, 12]);
