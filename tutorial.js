@@ -202,7 +202,7 @@ var removeElement = function (nums, val) {
 // Minimize the total number of operations.
 
 var moveZeroes = function (nums) {
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = nums.length - 1; i >= 0; i--) {
     if (nums[i] === 0) {
       nums.push(nums.splice(i, 1).pop());
     }
@@ -210,4 +210,4 @@ var moveZeroes = function (nums) {
   console.log(nums);
 };
 
-moveZeroes([0, 1, 0, 3, 12]);
+moveZeroes([0, 1, 0]);
