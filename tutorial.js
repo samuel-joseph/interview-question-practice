@@ -207,7 +207,7 @@ var moveZeroes = function (nums) {
       nums.push(nums.splice(i, 1).pop());
     }
   }
-  console.log(nums);
+  return nums;
 };
 
 moveZeroes([0, 1, 0]);
