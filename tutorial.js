@@ -217,11 +217,24 @@ var moveZeroes = function (nums) {
 
 var arrayToObj = function (a) {
   let obj = {};
-  for (let i = a.length - 1; i >= 0; i--) {
+  let array = [];
+  let temp = null;
+  for (let i = 0; i < a.length; i++) {
+    temp = a[i];
     obj[`${a[i]}`] = 1;
+    for (let j = i + 1; j < a.length; j++) {
+      if (a[i] === a[j]) {
+        obj[`${a[i]}`] = obj[a[i]] + 1;
+        a.splice(j, 1);
+      } else if (a[i] !== a[j]) {
+        obj[`${a[j]}`] = 1;
+      }
+    }
   }
   console.log(obj);
   // return obj;
 };
 
-arrayToObj(["banana", "apple", "banana", "orange"]);
+// obj[`${a[i]}`] = num;
+
+arrayToObj(["banana", "apple", "banana", "apple", "cake", "banana","pie"]);
