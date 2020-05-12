@@ -210,4 +210,18 @@ var moveZeroes = function (nums) {
   return nums;
 };
 
-moveZeroes([0, 1, 0]);
+//Create a function where you will make an array of strings into an object
+// Example:
+// [banana, apple, banana, orange]
+// {"banana":2,"apple":1,"orange":1}
+
+var arrayToObj = function (a) {
+  let obj = {};
+  for (let i = a.length - 1; i >= 0; i--) {
+    obj[`${a[i]}`] = 1;
+  }
+  console.log(obj);
+  // return obj;
+};
+
+arrayToObj(["banana", "apple", "banana", "orange"]);
