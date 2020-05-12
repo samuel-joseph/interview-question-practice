@@ -210,7 +210,7 @@ var moveZeroes = function (nums) {
   return nums;
 };
 
-//Create a function where you will make an array 
+//Create a function where you will make an array
 //of strings into an object, name of the fruit
 //as key and value will be the length of fruit
 // Example:
@@ -219,24 +219,13 @@ var moveZeroes = function (nums) {
 
 var arrayToObj = function (a) {
   let obj = {};
-  let temp = null;
   for (let i = 0; i < a.length; i++) {
-    temp = a[i];
-    obj[`${a[i]}`] = 1;
-    for (let j = i + 1; j < a.length; j++) {
-      if (a[i] === a[j]) {
-        obj[`${a[i]}`] = obj[a[i]] + 1;
-        a.splice(j, 1);
-      } else if (a[i] !== a[j]) {
-        obj[`${a[j]}`] = 1;
-      }
+    if (!obj[`${a[i]}`]) {
+      obj[`${a[i]}`] = 1;
+    } else if (obj[`${a[i]}`]) {
+      obj[`${a[i]}`] = obj[a[i]] + 1;
     }
   }
   return obj;
 };
-
-// obj[`${a[i]}`] = num;
-
-console.log(
-  arrayToObj(["banana", "apple", "banana", "orange"])
-);
+console.log(arrayToObj(["banana", "apple", "orange", "orange"]));
