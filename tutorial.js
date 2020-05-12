@@ -229,7 +229,6 @@ var arrayToObj = function (a) {
   return obj;
 };
 
-
 // Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 
 // Note:
@@ -245,3 +244,16 @@ var arrayToObj = function (a) {
 // Input: [4,1,2,1,2]
 // Output: 4
 
+var singleNumber = function (nums) {
+  let temp = null;
+  for (let i = 0; i < nums.length; i++) {
+    if (!temp) {
+      temp = nums[i];
+    } else if (temp === nums[i]) {
+      temp = null;
+    }
+  }
+  return temp;
+};
+
+console.log(singleNumber([2,2, 1, 2,1]));
