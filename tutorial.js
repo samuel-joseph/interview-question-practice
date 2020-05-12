@@ -220,15 +220,14 @@ var moveZeroes = function (nums) {
 var arrayToObj = function (a) {
   let obj = {};
   for (let i = 0; i < a.length; i++) {
-    if (!obj[`${a[i]}`]) {
-      obj[`${a[i]}`] = 1;
-    } else if (obj[`${a[i]}`]) {
-      obj[`${a[i]}`] = obj[a[i]] + 1;
+    if (!obj[a[i]]) {
+      obj[a[i]] = 1;
+    } else if (obj[a[i]]) {
+      obj[a[i]] = obj[a[i]] + 1;
     }
   }
   return obj;
 };
-
 // Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 
 // Note:
@@ -244,16 +243,13 @@ var arrayToObj = function (a) {
 // Input: [4,1,2,1,2]
 // Output: 4
 
-var singleNumber = function (nums) {
-  let temp = null;
-  for (let i = 0; i < nums.length; i++) {
-    if (!temp) {
-      temp = nums[i];
-    } else if (temp === nums[i]) {
-      temp = null;
-    }
+var rotate = function (nums, k) {
+  let i = 0;
+  while (i < k) {
+    nums.unshift(nums.pop());
+    i++;
   }
-  return temp;
+  return nums;
 };
 
-console.log(singleNumber([2,2, 1, 2,1]));
+console.log(rotate([-1, -100, 3, 99], 2));
