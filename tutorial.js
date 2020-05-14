@@ -257,6 +257,17 @@ var rotate = function (nums, k) {
 // Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2.
 //              Since 2 has only one digit, return it.
 
-var addDigits = function(num) {
-    
+var addDigits = function (num) {
+  var newNum = ("" + num).split("");
+  let answer = 0;
+  while (newNum.length > 1) {
+    answer = parseInt(newNum.shift()) + parseInt(newNum.pop());
+    while (newNum.length !== 0) {
+      answer += parseInt(newNum.pop());
+    }
+    newNum = ("" + answer).split("");
+  }
+  return newNum.pop();
 };
+
+console.log(addDigits(111));
