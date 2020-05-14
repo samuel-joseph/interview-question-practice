@@ -284,3 +284,19 @@ var addDigits = function (num) {
 
 // Input: [4,1,2,1,2]
 // Output: 4
+
+var singleNumber = function (nums) {
+  let answer = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (answer.length === 0) {
+      answer.push(nums[i]);
+    } else {
+      if (nums[i] === answer[answer.indexOf(nums[i])])
+        answer.splice(answer.indexOf(nums[i]), 1);
+      else answer.push(nums[i]);
+    }
+  }
+  return answer;
+};
+
+console.log(singleNumber([2, 1, 2, 3, 4, 5, 6, 0]));
