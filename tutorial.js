@@ -322,11 +322,11 @@ var findTheDifference = function (s, t) {
   var d = ("" + t).split("");
   for (let i = d.length - 1; i >= 0; i--) {
     let index = s.indexOf(d[i]);
-    if (d.length === 1) return d.pop();
-    else if (d[i] === s[index]) {
+    if (d[i] === s[index]) {
       d.splice(i, 1);
+      if (d.length === 1) return d.pop();
     }
   }
 };
 
-console.log(findTheDifference("a", "aa"));
+console.log(findTheDifference("abcd", "abcde"));
