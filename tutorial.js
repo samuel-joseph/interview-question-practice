@@ -287,16 +287,20 @@ var addDigits = function (num) {
 
 var singleNumber = function (nums) {
   let answer = [];
+  let multiple = [];
   for (let i = 0; i < nums.length; i++) {
     if (answer.length === 0) {
       answer.push(nums[i]);
     } else {
-      if (nums[i] === answer[answer.indexOf(nums[i])])
+      if (nums[i] === answer[answer.indexOf(nums[i])]) {
+        multiple.push(nums[i]);
         answer.splice(answer.indexOf(nums[i]), 1);
-      else answer.push(nums[i]);
+      } else if (nums[i] !== multiple[multiple.indexOf(nums[i])]) {
+        answer.push(nums[i]);
+      }
     }
   }
   return answer;
 };
 
-console.log(singleNumber([2, 1, 2, 3, 4, 5, 6, 0]));
+console.log(singleNumber([3, 1, 3, 4, 3]));
