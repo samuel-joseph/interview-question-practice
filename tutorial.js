@@ -343,11 +343,13 @@ var findTheDifference = function (s, t) {
 // Output: 5
 
 var lengthOfLastWord = function (s) {
-  let sum = 0;
-  for (let i = s.length - 1; i >= 0; i--) {
-    if (s[i] === " ") return sum;
-    sum = sum + 1;
+  let ar = s.split(" ");
+  let last = ar.pop();
+  while (last.length === 0) {
+    last = ar.pop();
   }
+
+  return last.length;
 };
 
-console.log(lengthOfLastWord("Hello World"));
+console.log(lengthOfLastWord("a "));
