@@ -319,10 +319,19 @@ var singleNumber = function (nums) {
 // 'e' is the letter that was added.
 
 var findTheDifference = function (s, t) {
-  
+  let a = s.split("");
+  let b = t.split("");
+  a = a.sort();
+  b = b.sort();
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      b.push(b.splice(i, 1));
+    }
+  }
+  return b.pop();
 };
 
-console.log(findTheDifference("abcd", "abcde"));
+console.log(findTheDifference("abcd", "aabcd"));
 
 // Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word (last word means the last appearing word if we loop from left to right) in the string.
 
