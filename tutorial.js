@@ -346,13 +346,16 @@ var findTheDifference = function (s, t) {
 
 var lengthOfLastWord = function (s) {
   if (s.length === 0 || s === undefined) return 0;
-  let ar = s.split(" ");
-  console.log(ar[ar.length - 1].length);
-  while (ar[ar.length - 1].length === 0) {
-    ar.pop();
-  }
 
-  return ar.pop().length;
+  if ((s >= "a" && s <= "z") || (s >= "A" && s <= "Z")) {
+    let ar = s.split(" ");
+    while (ar[ar.length - 1].length === 0) {
+      ar.pop();
+    }
+    return ar.pop().length;
+  } else {
+    return 0;
+  }
 };
 
-console.log(lengthOfLastWord("Hello World"));
+// console.log(lengthOfLastWord("     A "));
