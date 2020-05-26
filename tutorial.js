@@ -328,10 +328,10 @@ var findTheDifference = function (s, t) {
       b.push(b.splice(i, 1));
     }
   }
-  return b.pop();
+  return b.pop().toString();
 };
 
-console.log(findTheDifference("abcd", "aabcd"));
+// console.log(findTheDifference("abcd", "aabcd"));
 
 // Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word (last word means the last appearing word if we loop from left to right) in the string.
 
@@ -354,3 +354,5 @@ var lengthOfLastWord = function (s) {
 
   return ar.pop().length;
 };
+
+console.log(lengthOfLastWord("Hello World"));
