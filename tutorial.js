@@ -359,3 +359,14 @@ var lengthOfLastWord = function (s) {
 };
 
 // console.log(lengthOfLastWord("     A "));
+
+var missingNumber = function (nums) {
+  nums.sort();
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] + 1 !== nums[i + 1]) {
+      return nums[i] + 1;
+    }
+  }
+};
+
+console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
