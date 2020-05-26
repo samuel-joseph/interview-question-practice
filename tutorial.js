@@ -362,12 +362,11 @@ var lengthOfLastWord = function (s) {
 
 var missingNumber = function (nums) {
   nums.sort();
-  for (let i = 0; i < nums.length; i++) {
-      if(i===0&&nums.length===1) return 1
-    if (nums[i]!==i) {
-      return i;
-    }
+  let i = 0;
+  while (i === nums[i]) {
+    i++;
   }
+  return i;
 };
 
 console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
