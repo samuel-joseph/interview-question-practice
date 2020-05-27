@@ -361,12 +361,20 @@ var lengthOfLastWord = function (s) {
 // console.log(lengthOfLastWord("     A "));
 
 var missingNumber = function (nums) {
-  nums.sort();
+  let x = 0;
   let i = 0;
-  while (i === nums[i]) {
+  while (i < nums.length) {
+    if (x === nums[i]) {
+      x++;
+      i = 0;
+    }
     i++;
   }
-  return i;
+  return x;
 };
 
-console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
+// console.log(missingNumber([1, 0]));
+
+var intToRoman = function(num) {
+    
+};
