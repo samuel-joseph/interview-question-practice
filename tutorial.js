@@ -430,8 +430,6 @@ var intToRoman = function (num) {
 
 // You may assume all the characters consist of printable ascii characters.
 
- 
-
 // Example 1:
 
 // Input: ["h","e","l","l","o"]
@@ -441,6 +439,8 @@ var intToRoman = function (num) {
 // Input: ["H","a","n","n","a","h"]
 // Output: ["h","a","n","n","a","H"]
 
-var reverseString = function(s) {
-    
+var reverseString = function (s) {
+  return s.reverse();
 };
+
+console.log(reverseString(["h", "e", "l", "l", "o"]));
