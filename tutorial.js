@@ -458,7 +458,8 @@ var reverseString = function (s) {
 
 var reverseVowels = function (s) {
   let j = s.length - 1;
-  let temp = null;
+  let temp = [];
+  let answer = "";
   for (let i = 0; i < s.length; i++) {
     if (
       s[i] === "a" ||
@@ -467,24 +468,25 @@ var reverseVowels = function (s) {
       s[i] === "o" ||
       s[i] === "u"
     ) {
-      while (j !== 0 && j !== i) {
-        if (
-          s[j] === "a" ||
-          s[j] === "e" ||
-          s[j] === "i" ||
-          s[j] === "o" ||
-          s[j] === "u"
-        ) {
-          temp = s[i];
-          s[i] = s[j];
-          s[j] = temp;
-        } else {
-          j--;
-        }
-      }
+      temp.push(s[i]);
     }
   }
-  return s;
+  temp.reverse();
+  for (let j = 0; j < s.length; j++) {
+    if (
+      s[j] === "a" ||
+      s[j] === "e" ||
+      s[j] === "i" ||
+      s[j] === "o" ||
+      s[j] === "u"
+    ) {
+      answer += temp.splice(0, 1);
+    } else {
+      answer += s[j];
+    }
+    console.log(answer)
+  }
+  return answer;
 };
 
-console.log(reverseVowels("hello"));
+console.log(reverseVowels("jkbjygbjbjoiyutyvgbhnjdxcvghdxcfvgbhnjkihugvbnjkhg"));
