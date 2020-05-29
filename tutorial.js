@@ -456,6 +456,35 @@ var reverseString = function (s) {
 // Input: "leetcode"
 // Output: "leotcede"
 
-var reverseVowels = function(s) {
-    
+var reverseVowels = function (s) {
+  let j = s.length - 1;
+  let temp = null;
+  for (let i = 0; i < s.length; i++) {
+    if (
+      s[i] === "a" ||
+      s[i] === "e" ||
+      s[i] === "i" ||
+      s[i] === "o" ||
+      s[i] === "u"
+    ) {
+      while (j !== 0 && j !== i) {
+        if (
+          s[j] === "a" ||
+          s[j] === "e" ||
+          s[j] === "i" ||
+          s[j] === "o" ||
+          s[j] === "u"
+        ) {
+          temp = s[i];
+          s[i] = s[j];
+          s[j] = temp;
+        } else {
+          j--;
+        }
+      }
+    }
+  }
+  return s;
 };
+
+console.log(reverseVowels("hello"));
