@@ -443,4 +443,19 @@ var reverseString = function (s) {
   return s.reverse();
 };
 
-console.log(reverseString(["h", "e", "l", "l", "o"]));
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// Write a function that takes a string as input and reverse only the vowels of a string.
+
+// Example 1:
+
+// Input: "hello"
+// Output: "holle"
+// Example 2:
+
+// Input: "leetcode"
+// Output: "leotcede"
+
+var reverseVowels = function(s) {
+    
+};
