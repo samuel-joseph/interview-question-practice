@@ -512,17 +512,26 @@ var reverseVowels = function (s) {
 
 // You are guaranteed that the answer is unique.
 
- 
-
 // Example 1:
 
 // Input: target = [1,3], n = 3
 // Output: ["Push","Push","Pop","Push"]
-// Explanation: 
+// Explanation:
 // Read number 1 and automatically push in the array -> [1]
 // Read number 2 and automatically push in the array then Pop it -> [1]
 // Read number 3 and automatically push in the array -> [1,3]
 
-var buildArray = function(target, n) {
-    
+var buildArray = function (target, n) {
+  let answer = [];
+  for (let count = 1; count <= n && count <= target.length; count++) {
+    if (target.indexOf(count) >= 0) {
+      answer.push("PUSH");
+    } else {
+      answer.push("PUSH");
+      answer.push("POP");
+    }
+  }
+  return answer;
 };
+
+console.log(buildArray([1, 2], 4));
