@@ -527,10 +527,10 @@ var buildArray = function (target, n) {
   let count = 1;
   while (copy > 0) {
     if (target.indexOf(count) >= 0) {
-      answer.push("PUSH");
+      answer.push("Push");
       copy--;
     } else {
-      answer.push("PUSH", "POP");
+      answer.push("Push", "Pop");
     }
     count++;
   }
