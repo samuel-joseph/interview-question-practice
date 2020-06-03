@@ -566,7 +566,7 @@ var arrangeWords = function (text) {
     answer.push(txt[temp[j][1]].toLowerCase());
   }
   answer[0] = answer[0].charAt(0).toUpperCase() + answer[0].slice(1);
-  return answer;
+  return answer.toString().replace(/,/g, " ");
 };
 
 console.log(arrangeWords("Keep calm and code on"));
