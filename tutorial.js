@@ -522,16 +522,19 @@ var reverseVowels = function (s) {
 // Read number 3 and automatically push in the array -> [1,3]
 
 var buildArray = function (target, n) {
+  let copy = target.length;
   let answer = [];
-  for (let count = 1; count <= n && count <= target.length; count++) {
+  let count = 1;
+  while (copy > 0) {
     if (target.indexOf(count) >= 0) {
       answer.push("PUSH");
+      copy--;
     } else {
-      answer.push("PUSH");
-      answer.push("POP");
+      answer.push("PUSH", "POP");
     }
+    count++;
   }
   return answer;
 };
 
-console.log(buildArray([1, 2], 4));
+console.log(buildArray([1, 2], 10));
