@@ -466,7 +466,12 @@ var reverseVowels = function (s) {
       s[i] === "e" ||
       s[i] === "i" ||
       s[i] === "o" ||
-      s[i] === "u"
+      s[i] === "u" ||
+      s[i] === "A" ||
+      s[i] === "E" ||
+      s[i] === "I" ||
+      s[i] === "O" ||
+      s[i] === "U"
     ) {
       temp.push(s[i]);
     }
@@ -478,15 +483,46 @@ var reverseVowels = function (s) {
       s[j] === "e" ||
       s[j] === "i" ||
       s[j] === "o" ||
-      s[j] === "u"
+      s[j] === "u" ||
+      s[j] === "A" ||
+      s[j] === "E" ||
+      s[j] === "I" ||
+      s[j] === "O" ||
+      s[j] === "U"
     ) {
       answer += temp.splice(0, 1);
     } else {
       answer += s[j];
     }
-    console.log(answer)
+    console.log(answer);
   }
   return answer;
 };
 
-console.log(reverseVowels("jkbjygbjbjoiyutyvgbhnjdxcvghdxcfvgbhnjkihugvbnjkhg"));
+// Given an array target and an integer n. In each iteration, you will read a number from  list = {1,2,3..., n}.
+
+// Build the target array using the following operations:
+
+// Push: Read a new element from the beginning list, and push it in the array.
+// Pop: delete the last element of the array.
+// If the target array is already built, stop reading more elements.
+// You are guaranteed that the target array is strictly increasing, only containing numbers between 1 to n inclusive.
+
+// Return the operations to build the target array.
+
+// You are guaranteed that the answer is unique.
+
+ 
+
+// Example 1:
+
+// Input: target = [1,3], n = 3
+// Output: ["Push","Push","Pop","Push"]
+// Explanation: 
+// Read number 1 and automatically push in the array -> [1]
+// Read number 2 and automatically push in the array then Pop it -> [1]
+// Read number 3 and automatically push in the array -> [1,3]
+
+var buildArray = function(target, n) {
+    
+};
