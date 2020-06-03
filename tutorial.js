@@ -545,8 +545,6 @@ var buildArray = function (target, n) {
 
 // Return the new text following the format shown above.
 
- 
-
 // Example 1:
 
 // Input: text = "Leetcode is cool"
@@ -554,9 +552,21 @@ var buildArray = function (target, n) {
 // Explanation: There are 3 words, "Leetcode" of length 8, "is" of length 2 and "cool" of length 4.
 // Output is ordered by length and the new first word starts with capital letter.
 
-
-var arrangeWords = function(text) {
-    
+var arrangeWords = function (text) {
+  let txt = text.split(" ");
+  let temp = [];
+  let i = 0;
+  for (let i = 0; i < txt.length; i++) {
+    let obj = [txt[i].length, i];
+    temp.push(obj);
+  }
+  temp.sort();
+  let answer = [];
+  for (let j = 0; j < txt.length; j++) {
+    answer.push(txt[temp[j][1]].toLowerCase());
+  }
+  answer[0] = answer[0].charAt(0).toUpperCase() + answer[0].slice(1);
+  return answer;
 };
 
-console.log(arrangeWords("Leetcode is cool"))
+console.log(arrangeWords("Keep calm and code on"));
