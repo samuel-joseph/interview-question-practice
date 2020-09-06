@@ -598,9 +598,9 @@ var arrangeWords = function (text) {
 // Output: "0"
 
 var thousandSeparator = function (n) {
-  let answer = n.toString();
-  
-  return answer[2];
+  let test = n.toString().split("").reverse().join("");
+  let answer = "";
+  return test;
 };
 
-console.log(thousandSeparator(123456));
+console.log(thousandSeparator(1237));
