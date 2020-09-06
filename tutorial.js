@@ -560,7 +560,14 @@ var arrangeWords = function (text) {
     let obj = [txt[i].length, i];
     temp.push(obj);
   }
-  temp.sort();
+
+  let test = temp.sort(function (a, b) {
+    return a - b;
+  });
+  console.log(test);
+
+  // temp.sort();
+
   let answer = [];
   for (let j = 0; j < txt.length; j++) {
     answer.push(txt[temp[j][1]].toLowerCase());
@@ -569,4 +576,31 @@ var arrangeWords = function (text) {
   return answer.toString().replace(/,/g, " ");
 };
 
-console.log(arrangeWords("Keep calm and code on"));
+// console.log(arrangeWords("Leetcode is cool"));
+
+// Given an integer n, add a dot (".") as the thousands separator and return it in string format.
+
+// Example 1:
+
+// Input: n = 987
+// Output: "987"
+// Example 2:
+
+// Input: n = 1234
+// Output: "1.234"
+// Example 3:
+
+// Input: n = 123456789
+// Output: "123.456.789"
+// Example 4:
+
+// Input: n = 0
+// Output: "0"
+
+var thousandSeparator = function (n) {
+  let answer = n.toString();
+  
+  return answer[2];
+};
+
+console.log(thousandSeparator(123456));
