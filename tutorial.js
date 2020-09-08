@@ -564,7 +564,6 @@ var arrangeWords = function (text) {
   let test = temp.sort(function (a, b) {
     return a - b;
   });
-  console.log(test);
 
   // temp.sort();
 
