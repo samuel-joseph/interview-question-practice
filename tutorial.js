@@ -608,4 +608,10 @@ var thousandSeparator = function (n) {
   return answer.reverse().join("");
 };
 
-console.log(thousandSeparator(1237777177777777));
+// Given an integer number n, return the difference between the product of its digits and the sum of its digits.
+
+var subtractProductAndSum = function (n) {
+  return n;
+};
+
+console.log(subtractProductAndSum(234));
