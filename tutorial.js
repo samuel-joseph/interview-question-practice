@@ -628,11 +628,36 @@ var subtractProductAndSum = function (n) {
 
 // console.log(subtractProductAndSum(4421));
 
-
 // Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 // You may assume no duplicates in the array.
 
-var searchInsert = function(nums, target) {
-    
+var searchInsert = function (nums, target) {
+  nums.sort(function (a, b) {
+    return a - b;
+  });
+  for (let i = 0; i < nums.length; i++) {
+    if (target === nums[i]) {
+      return i;
+    } else if (
+      target > nums[i] &&
+      (target < nums[i + 1] || target === nums[i + 1])
+    ) {
+      return i + 1;
+    } else if (i === 0) {
+      if (target < nums[i]) {
+        return i;
+      } else if (nums.length === 1) {
+        return i + 1;
+      }
+    } else if (i === nums.length - 1) {
+      if (target > nums[i]) {
+        return i + 1;
+      } else {
+        return null;
+      }
+    }
+  }
 };
+
+console.log(searchInsert([1], 2));
