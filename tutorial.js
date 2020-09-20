@@ -668,6 +668,15 @@ var searchInsert = function (nums, target) {
 // Input: "Let's take LeetCode contest"
 // Output: "s'teL ekat edoCteeL tsetnoc"
 
-var reverseWords = function(s) {
-    
+var reverseWords = function (s) {
+  // let a = toString().split("");
+  // let answer = [];
+  // for (let i = a.length - 1; i >= 0; i--) {
+  //   answer.push(a[i]);
+  // }
+  // return answer;
+  let answer = s.split("");
+  return answer.reverse().join("");
 };
+
+console.log(reverseWords("Let's take LeetCode contest"));
