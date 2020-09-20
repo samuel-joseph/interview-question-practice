@@ -669,14 +669,21 @@ var searchInsert = function (nums, target) {
 // Output: "s'teL ekat edoCteeL tsetnoc"
 
 var reverseWords = function (s) {
-  // let a = toString().split("");
-  // let answer = [];
-  // for (let i = a.length - 1; i >= 0; i--) {
-  //   answer.push(a[i]);
-  // }
-  // return answer;
-  let answer = s.split("");
-  return answer.reverse().join("");
+  let temp = [];
+  let answer = [];
+  s = s.split("");
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== " ") {
+      temp.push(s[i]);
+    } else if (s[i] === " " || i === s.length - 1) {
+      temp.reverse();
+      answer.push(temp);
+      temp = [];
+      answer.push(s[i]);
+    }
+  }
+  return answer.join("");
 };
 
 console.log(reverseWords("Let's take LeetCode contest"));
