@@ -686,4 +686,11 @@ var reverseWords = function (s) {
   return answer.join("");
 };
 
-console.log(reverseWords("Let's take LeetCode contest"));
+// console.log(reverseWords("Let's take LeetCode contest"));
+
+var fibonacci = function fib(n) {
+  if (n < 2) {
+    return n;
+  }
+  return fib(n - 1) + fib(n - 2);
+};
