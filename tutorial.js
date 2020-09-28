@@ -689,8 +689,20 @@ var reverseWords = function (s) {
 // console.log(reverseWords("Let's take LeetCode contest"));
 
 var fibonacci = function fib(n) {
+  console.log(n);
   if (n < 2) {
     return n;
   }
   return fib(n - 1) + fib(n - 2);
 };
+
+// console.log(fibonacci(8));
+
+var reverse = function (str) {
+  return str.split("").reduce((reverse, character) => {
+    console.log(reverse);
+    return character + reverse;
+  }, "");
+};
+
+console.log(reverse("dcba"));
