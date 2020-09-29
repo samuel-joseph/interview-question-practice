@@ -777,14 +777,16 @@ var chunk = function (arr, n) {
   let temp = [];
   let answer = [];
   for (let i = 0; i < arr.length; i++) {
-    if (temp === n) {
+    temp.push(arr[i]);
+    if (temp.length === n) {
       answer.push(temp);
       temp = [];
-    } else {
-      temp.push[arr[i]];
     }
+  }
+  if (temp.length) {
+    answer.push(temp);
   }
   return answer;
 };
 
-console.log(chunk([1, 2, 3, 4, 5], 2));
+console.log(chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2));
