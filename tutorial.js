@@ -705,4 +705,44 @@ var reverse = function (str) {
   }, "");
 };
 
-console.log(reverse("dcba"));
+var palindrome = function (str) {
+  let reversed = str.split("").reduce((palin, character) => {
+    return character + palin;
+  }, "");
+
+  if (str === reversed) return true;
+  else return false;
+};
+
+var reverseInt = function (n) {
+  let answer = n
+    .toString()
+    .split("")
+    .reduce((reversed, character) => {
+      return character + reversed;
+    }, "");
+  return (parseInt(answer) / 1) * Math.sign(n);
+};
+
+var maxChar = function (str) {
+  let chars = {};
+  let max = 0;
+  let maxChar = "";
+  for (let char of str) {
+    if (!chars[char]) {
+      chars[char] = 1;
+    } else {
+      chars[char]++;
+    }
+  }
+
+  for (let char in chars) {
+    if (chars[char] > max) {
+      max = chars[char];
+      maxChar = char;
+    }
+  }
+  return maxChar;
+};
+
+console.log(maxChar("Hello There!"));
