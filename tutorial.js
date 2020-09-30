@@ -789,4 +789,10 @@ var chunk = function (arr, n) {
   return answer;
 };
 
-console.log(chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2));
+var anagrams = function (stringA, stringB) {
+  function stringCal() {
+    
+  }
+};
+
+console.log(anagrams("abc", "cba"));
