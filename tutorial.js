@@ -840,6 +840,40 @@ var capitalize = function (str) {
   return answer.join(" ");
 };
 
-var steps = function (n) {};
+// --- Directions
+// Write a function that accepts a positive number N.
+// The function should console log a step shape
+// with N levels using the # character.  Make sure the
+// step has spaces on the right hand side!
+// --- Examples
+//   steps(2)
+//       '# '
+//       '##'
+//   steps(3)
+//       '#  '
+//       '## '
+//       '###'
+//   steps(4)
+//       '#   '
+//       '##  '
+//       '### '
+//       '####'
 
-console.log(steps(2));
+var steps = function (n) {
+  let answer = "";
+  let space = "";
+  for (let i = 1; i <= n; i++) {
+    answer += "#";
+    for (let j = 1; j <= n - i; j++) {
+      space += " ";
+    }
+    if (i === n) {
+      console.log(answer);
+    } else {
+      console.log(answer + space);
+    }
+    space = "";
+  }
+};
+
+steps(3);
