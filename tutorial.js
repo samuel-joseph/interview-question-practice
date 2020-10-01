@@ -840,4 +840,6 @@ var capitalize = function (str) {
   return answer.join(" ");
 };
 
-console.log(capitalize("hi there how is it going"));
+var steps = function (n) {};
+
+console.log(steps(2));
