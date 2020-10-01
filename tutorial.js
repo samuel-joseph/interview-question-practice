@@ -790,9 +790,32 @@ var chunk = function (arr, n) {
 };
 
 var anagrams = function (stringA, stringB) {
-  function stringCal() {
-    
+  let charMap = {};
+  function stringCal(word) {
+    return word.replace(/[^\w]/g, "").toLowerCase();
+  }
+
+  let a = stringCal(stringA);
+  let b = stringCal(stringB);
+
+  if (a.length === b.length) {
+    for (let char of a) {
+      if (!charMap[char]) {
+        charMap[char] = 1;
+      } else {
+        charMap[char]++;
+      }
+    }
+
+    for (let char of b) {
+      if (!charMap[char]) {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    return false;
   }
 };
 
-console.log(anagrams("abc", "cba"));
+console.log(anagrams("abc!!!", "cbad"));
