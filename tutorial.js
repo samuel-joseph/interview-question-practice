@@ -818,7 +818,6 @@ var anagrams = function (stringA, stringB) {
   }
 };
 
-
 // --- Directions
 // Write a function that accepts a string.  The function should
 // capitalize the first letter of each word in the string then
@@ -829,7 +828,16 @@ var anagrams = function (stringA, stringB) {
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 var capitalize = function (str) {
-  
-}
+  let answer = [];
+  str = str.split(" ");
 
-console.log(capitalize('a short sentence'))
+  for (let i = 0; i < str.length; i++) {
+    let temp = str[i].split("");
+    let index0 = temp[0].toUpperCase();
+    let body = temp.splice(1);
+    answer.push(index0 + body.join(""));
+  }
+  return answer.join(" ");
+};
+
+console.log(capitalize("hi there how is it going"));
