@@ -11,4 +11,20 @@ function isPalindrome(num) {
   return false;
 }
 
-console.log(isPalindrome(222));
+function isPalindrome2(num) {
+  var expected = ("" + num).split("");
+  var actual = [];
+
+  for (let i = expected.length - 1; i >= 0; i--) {
+    actual.push(expected[i]);
+  }
+  console.log(expected);
+  console.log(actual);
+  if (expected.join() === actual.join()) {
+    return true;
+  }
+
+  return false;
+}
+
+console.log(isPalindrome2(121));
