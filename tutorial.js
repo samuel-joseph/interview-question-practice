@@ -876,4 +876,27 @@ var steps = function (n) {
   }
 };
 
-steps(3);
+// steps(10);
+
+var vowels = function (str) {
+  str = str.split("");
+  let charMap = {
+    a: 1,
+    e: 1,
+    i: 1,
+    o: 1,
+    u: 1,
+  };
+  let total = 0;
+
+  console.log(charMap['b'])
+
+  for (let char of str) {
+    if (charMap[char]) {
+      total++;
+    }
+  }
+  return total;
+};
+
+console.log(vowels("abceio"));
