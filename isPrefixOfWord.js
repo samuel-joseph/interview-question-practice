@@ -22,11 +22,11 @@ function isPrefixOfWord(sentence, searchWord) {
   for (let i = 0; i < arr.length; i++) {
     let temp = "";
     for (let j = 0; j < arr[i].length; j++) {
+      temp += arr[i][j];
       if (temp === searchWord) {
         count++;
         index.push(i);
       }
-      temp += arr[i][j];
     }
   }
 
@@ -37,4 +37,4 @@ function isPrefixOfWord(sentence, searchWord) {
   return index[0] + 1;
 }
 
-console.log(isPrefixOfWord("is that ", "pro"));
+console.log(isPrefixOfWord("love errichto jonathan dumb ", "dumb"));
