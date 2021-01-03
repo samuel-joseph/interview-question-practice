@@ -33,7 +33,6 @@ function isPrefixOfWord(sentence, searchWord) {
   if (index.length < 1) {
     return -1;
   }
-
   return index[0] + 1;
 }
 
