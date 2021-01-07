@@ -27,4 +27,5 @@ function isPalindrome2(num) {
   return false;
 }
 
-console.log(isPalindrome2(121));
+// console.log(isPalindrome2(121));
+console.log(isPalindrome("lol"));
