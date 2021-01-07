@@ -26,10 +26,17 @@ var reformatDate = function (date) {
   };
 
   var day = arr[0].substring(0, arr[0].length - 2);
-  var month = monthOptions[arr[1]];
+  var month = String(monthOptions[arr[1]]);
   var year = arr[2];
+
+  if (month.length === 1) {
+    month = "0" + month;
+  }
+  if (day.length === 1) {
+    day = "0" + day;
+  }
 
   return year + "-" + month + "-" + day;
 };
 
-console.log(reformatDate("20th Oct 2052"));
+console.log(reformatDate("6th Jan 2052"));
