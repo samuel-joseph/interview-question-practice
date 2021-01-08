@@ -13,7 +13,7 @@ var average = function (salary) {
   for (let i = 0; i < salary.length; i++) {
     sum += salary[i];
   }
-  return sum / 2;
+  return sum / salary.length;
 };
 
 console.log(average([4000, 3000, 1000, 2000]));
