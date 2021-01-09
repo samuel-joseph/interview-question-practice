@@ -37,8 +37,9 @@ var average = function (salary) {
 
   sum -= min;
   sum -= max;
-  console.log(min + " " + max);
   return sum / (salary.length - 2);
 };
 
-console.log(average([4000, 3000, 1000, 2000]));
+console.log(average([8000, 9000, 2000, 3000, 6000, 1000]));
+
+//done
