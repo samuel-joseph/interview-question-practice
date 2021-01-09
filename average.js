@@ -9,7 +9,7 @@
 
 var average = function (salary) {
   let sum = 0;
-  let min = 0;
+  let min;
   let max = 0;
 
   for (let i = 0; i < salary.length; i++) {
@@ -17,21 +17,16 @@ var average = function (salary) {
     if (i === 0) {
       min = salary[i];
     } else {
-      if (min < salary[i]) {
-        console.log(salary[i]);
-        min = salary[i];
-      }
       if (min > salary[i]) {
-        if (max < salary[i]) {
-          max = salary[i];
-        }
+        min = salary[i];
+      } else if (max < salary[i]) {
+        max = salary[i];
       }
     }
   }
-  console.log(max);
-  console.log(min);
-  sum -= max + min;
-  return sum / salary.length;
+  sum -= min;
+  sum -= max;
+  return sum / (salary.length - 2);
 };
 
 console.log(average([8000, 9000, 2000, 3000, 6000, 1000]));
