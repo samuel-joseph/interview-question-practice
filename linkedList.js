@@ -7,7 +7,9 @@ class Node {
   }
 }
 
+//object linkedList
 class LinkedList {
+  //constructor
   constructor() {
     this.head = null;
     this.size = 0;
@@ -15,7 +17,6 @@ class LinkedList {
 
   add(element) {
     let node = new Node(element);
-
     let current;
 
     if (this.head === null) {
@@ -24,7 +25,9 @@ class LinkedList {
       current = this.head;
 
       while (current.next) {
+        console.log(current);
         current = current.next;
+        console.log(current);
       }
 
       current.next = node;
@@ -34,5 +37,11 @@ class LinkedList {
 }
 
 let test1 = new LinkedList();
-
-console.log(test1);
+test1.add(10);
+console.log("\n");
+test1.add(20);
+console.log("\n");
+test1.add(30);
+// console.log("\n");
+test1.add(40);
+// console.log(test1);
