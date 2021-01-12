@@ -32,3 +32,7 @@ class LinkedList {
     this.size++;
   }
 }
+
+let test1 = new LinkedList();
+
+console.log(test1);
