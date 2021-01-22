@@ -36,4 +36,4 @@ var findTheDistanceValue = function (arr1, arr2, d) {
   return answer;
 };
 
-console.log(findTheDistanceValue([1, 4, 2, 3], [-4, -3, 6, 10, 20, 30], 3));
+console.log(findTheDistanceValue([4, 5, 8], [10, 9, 1, 8], 2));
