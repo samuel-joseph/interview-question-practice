@@ -8,6 +8,21 @@
 // Output: 1
 // Explanation: Distance between 0 and 1 is 1 or 9, minimum is 1.
 
-var distanceBetweenBusStops = function(distance, start, destination) {
-    
+var distanceBetweenBusStops = function (distance, start, destination) {
+  let totalDistance = 0;
+  let clockwiseDistance = 0;
+  for (let i = 0; i < distance.length; i++) {
+    if (start < destination && i >= start && i < destination) {
+      clockwiseDistance += distance[i];
+    }
+    if (start > destination && (i >= start || i < destination)) {
+      clockwiseDistance += distance[i];
+    }
+
+    totalDistance += distance[i];
+  }
+
+  return Math.min(clockwiseDistance, totalDistance - clockwiseDistance);
 };
+
+console.log(distanceBetweenBusStops([1, 2, 3, 4], 0, 1));
