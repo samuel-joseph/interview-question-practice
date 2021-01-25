@@ -25,4 +25,4 @@ var distanceBetweenBusStops = function (distance, start, destination) {
   return Math.min(clockwiseDistance, totalDistance - clockwiseDistance);
 };
 
-console.log(distanceBetweenBusStops([1, 2, 3, 4], 0, 1));
+console.log(distanceBetweenBusStops([1, 2, 3, 4], 0, 3));
