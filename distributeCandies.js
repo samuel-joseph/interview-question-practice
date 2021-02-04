@@ -18,6 +18,22 @@
 // On the third turn, ans[2] += 3, and the array is [1,2,3,0].
 // On the fourth turn, ans[3] += 1 (because there is only one candy left), and the final array is [1,2,3,1].
 
-var distributeCandies = function (candies, num_people) {};
+var distributeCandies = function (candies, num_people) {
+  let arr = [];
+  let counter = 0;
+  for (let i = 0; i < num_people; i++) {
+    arr.push(0);
+  }
+
+  for (let j = 0; j < arr.length; j++) {
+    if (candies > 0) {
+      counter++;
+      arr[j] += counter;
+      candies -= counter;
+    }
+  }
+
+  return arr;
+};
 
 console.log(distributeCandies(7, 4));
