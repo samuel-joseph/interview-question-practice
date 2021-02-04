@@ -25,4 +25,3 @@ var twoSum = function (numbers, target) {
   }
 };
 
-console.log(twoSum([-1,0], -1));
