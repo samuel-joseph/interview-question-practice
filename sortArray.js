@@ -5,8 +5,8 @@
 // Input: nums = [5,2,3,1]
 // Output: [1, 2, 3, 5]
 
-var sortArray = function(nums) {
-    
+var sortArray = function (nums) {
+  return nums.sort();
 };
 
-console.log(sortArray([5,2,3,1]))
+console.log(sortArray([5, 1, 1, 2, 0, 0]));
