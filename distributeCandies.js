@@ -25,11 +25,16 @@ var distributeCandies = function (candies, num_people) {
     arr.push(0);
   }
 
-  for (let j = 0; j < arr.length; j++) {
-    if (candies > 0) {
-      counter++;
-      arr[j] += counter;
-      candies -= counter;
+  for (let i = 0; i < candies; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (counter < candies) {
+        counter++;
+        arr[j] += counter;
+        if (counter > candies) {
+          counter = 0;
+        }
+      }
+      console.log(arr);
     }
   }
 
