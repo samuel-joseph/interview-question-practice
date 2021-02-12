@@ -9,12 +9,18 @@
 // Explanation: You could delete the character 'c'.
 
 var validPalindrome = function (s) {
-  const flip = s.reverse();
+  const string = s.split("");
+  const flip = string.reverse().join("");
+
   if (s === flip) {
     return true;
+  } else {
+    for (let i = 0; i < string.length; i++) {
+      
+    }
   }
 
   return false;
 };
 
-console.log(validPalindrome("aba"));
+console.log(validPalindrome("abca"));
