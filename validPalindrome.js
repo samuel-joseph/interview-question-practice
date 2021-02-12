@@ -8,6 +8,13 @@
 // Output: True
 // Explanation: You could delete the character 'c'.
 
-var validPalindrome = function (s) {};
+var validPalindrome = function (s) {
+  const flip = s.reverse();
+  if (s === flip) {
+    return true;
+  }
+
+  return false;
+};
 
 console.log(validPalindrome("aba"));
