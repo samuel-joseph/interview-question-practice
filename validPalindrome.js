@@ -15,12 +15,25 @@ var validPalindrome = function (s) {
   if (s === flip) {
     return true;
   } else {
+    let newString = [];
+
     for (let i = 0; i < string.length; i++) {
-      
+      for (let j = 0; j < string.length; j++) {
+        if (i !== j) {
+          newString.push(string[j]);
+        }
+      }
+      console.log(newString);
+      let check = newString.join("");
+      let reverseCheck = newString.reverse().join("");
+      if (check === reverseCheck) {
+        return true;
+      }
+      newString = [];
     }
   }
 
   return false;
 };
 
-console.log(validPalindrome("abca"));
+console.log(validPalindrome("abcaf"));
