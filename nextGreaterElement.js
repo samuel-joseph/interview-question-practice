@@ -16,7 +16,7 @@
 var nextGreaterElement = function (nums1, nums2) {
   let answer = [];
   for (let i = 0; i < nums1.length; i++) {
-    for (let j = i; j < nums2.length; j++) {
+    for (let j = i + 1; j < nums2.length; j++) {
       console.log(nums2[j]);
       if (nums1[i] < nums2[j]) {
         answer.push(nums2[j]);
