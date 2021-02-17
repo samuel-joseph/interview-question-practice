@@ -18,6 +18,7 @@ var threeSum = function (nums) {
         if (-x === y) {
           let temp = [nums[i], nums[j], nums[k]];
           answer.push(temp);
+          break;
         }
       }
     }
@@ -26,4 +27,4 @@ var threeSum = function (nums) {
   return answer;
 };
 
-console.log(threeSum([0]));
+console.log(threeSum([0, 0, 0, 0]));
