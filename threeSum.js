@@ -8,7 +8,21 @@
 // Output: [[-1,-1,2],[-1,0,1]]
 
 var threeSum = function (nums) {
-  
+  let answer = [];
+  for (let i = 0; i < nums.length; i++) {
+    let x = nums[i];
+    for (let j = i + 1; j < nums.length; j++) {
+      let y = nums[j];
+      for (let k = j + 1; k < nums.length; k++) {
+        y += nums[k];
+        if (-x === y) {
+          answer.push(nums[i], nums[j], nums[k]);
+        }
+      }
+    }
+  }
+
+  return answer;
 };
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4]));
