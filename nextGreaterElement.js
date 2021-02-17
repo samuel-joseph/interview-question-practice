@@ -13,7 +13,18 @@
 // For number 1 in the first array, the next greater number for it in the second array is 3.
 // For number 2 in the first array, there is no next greater number for it in the second array, so output -1.
 
-var nextGreaterElement = function(nums1, nums2) {
+var nextGreaterElement = function (nums1, nums2) {
+  let answer = [];
+  for (let i = 0; i < nums1.length; i++) {
+    for (let j = 0; j < nums2.length; j++) {
+      if (nums1[i] < nums2[j]) {
+        answer.push(nums2[j]);
+      } else if (j === nums2.length - 1) {
+        answer.push(-1);
+      }
+    }
+  }
+  return answer;
 };
 
-console.log(nextGreaterElement([4,1,2],[1,3,4,2]))
+console.log(nextGreaterElement([4, 1, 2], [1, 3, 4, 2]));
