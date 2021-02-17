@@ -16,7 +16,8 @@ var threeSum = function (nums) {
       for (let k = j + 1; k < nums.length; k++) {
         y += nums[k];
         if (-x === y) {
-          answer.push(nums[i], nums[j], nums[k]);
+          let temp = [nums[i], nums[j], nums[k]];
+          answer.push(temp);
         }
       }
     }
